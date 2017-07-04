@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- 控制台设置 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 分割成多个文件记录 -->
+	<!-- <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>log/ComsumeDataForUltraEsb.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>log/ComsumeDataForUltraEsb-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<maxFileSize>100MB</maxFileSize>
+		    <maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} - %msg %n</Pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender> -->
+
+    <!-- * 通配符 设置log打印级别 对所有类有效TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+    
+    <!-- Sentry是一个统一的日志跟踪平台 -->
+    <!-- <appender name="Sentry" class="net.kencochrane.raven.logback.SentryAppender">
+        <File>log/error/errorMsg.log</File>
+        <dns></dns>
+        <rollingPolicy>
+        	
+        </rollingPolicy>
+        Optional, allows to select the ravenFactory
+        <ravenFactory>net.kencochrane.raven.DefaultRavenFactory</ravenFactory>
+    </appender>
+    <root level="warn">
+        <appender-ref ref="Sentry"/>
+    </root> -->
+</configuration>  
